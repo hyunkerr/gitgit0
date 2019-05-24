@@ -1,0 +1,105 @@
+{% extends 'blog/base.html' %}
+
+{% load static %}
+{% block content %}
+
+<section class='cover'>
+<div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+  <div class="carousel-inner">
+    
+    <div class="carousel-item active">
+      <div class="d-flex flex-column h-100 justify-content-center align-items-center">
+      <h4 class='cover_title text-white'>Get inpired</h4>
+      <p class='cover_text text-white'>Create your own style</p>
+      <a class='btn bt-warning text-white'>follow</a>
+      </div>
+    </div>
+    <div class="carousel-item">
+      <div class="d-flex flex-column h-100 justify-content-center align-items-center">
+      <h4 class='cover_title text-white'>Shop stylish pieces on market</h4>
+      <p class='cover_text text-white'></p>
+      <a class='btn bt-warning text-white'>Shop now</a>
+      </div>
+    </div>
+    <div class="carousel-item">
+      <div class="d-flex flex-column h-100 justify-content-center align-items-center">
+      <h4 class='cover_title text-white'>Share your personal style</h4>
+      <p class='cover_text text-white'>Post and share your outfit</p>
+      <a class='btn bt-warning text-white'>more detail</a>
+      </div>
+    </div>
+  </div>
+  <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="sr-only">Previous</span>
+  </a>
+  <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="sr-only">Next</span>
+  </a>
+</div>
+</section>
+<div class = "text-center">
+<nav aria-label="Page navigation example">
+  <ul class="pagination justify-content-center">
+    <li class="page-item">
+      <a class="page-link" href="#" aria-label="Previous">
+        <span aria-hidden="true">&laquo;</span>
+      </a>
+    </li>
+    <li class="page-item"><a class="page-link" href="#">1</a></li>
+    <li class="page-item"><a class="page-link" href="#">2</a></li>
+    <li class="page-item"><a class="page-link" href="#">3</a></li>
+    <li class="page-item">
+      <a class="page-link" href="#" aria-label="Next">
+        <span aria-hidden="true">&raquo;</span>
+      </a>
+    </li>
+  </ul>
+</nav>
+</div>
+<section class='clubs'>
+<header class='club_header'>
+  <p class='club_title'>
+    Trends
+    <span class='club_category'>#Chic #Sports #Elegant #Vintage #60s #70s #Natural #Modest #Formal</span>
+  </p>
+  </header>
+  <div class='container'>
+    <div class='row'>
+      {% for post in posts_list %}
+      <div class='col-lg-4 col-sm-12'>
+              <div class="card">
+                <img src="{% static 'blog/images/card2.jpg' %}" class="card-img-top" alt="">
+            
+                <div class="card-body">
+                <h5 class="card-title">
+                    <a href="{% url 'post_detail' index=post.pk %}">
+                      <h3>{{post.title}}</h3>
+                    </a>
+                </h5>
+                <p class="card-text">
+                  {{post.pub_date}}<br>
+                  {{post.body|linebreaks}}
+                </p>
+                <a href="#" class="btn btn-primary text-gray">{{post.writer}}</a>
+                </div>
+              </div>
+      </div>
+      {%endfor%}
+      <div class='col-lg-4 col-sm-12'><div class="card">
+                <img src="{% static 'blog/images/card3.jpg' %}" class="card-img-top" alt="">
+            
+                <div class="card-body">
+                <h5 class="card-title">Card title</h5>
+                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                <a href="#" class="btn btn-success text-gray">Go somewhere</a>
+                </div>
+              </div></div>
+
+    </div>          
+  </div>
+</section>
+
+
+{% endblock %}

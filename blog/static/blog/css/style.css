@@ -1,0 +1,54 @@
+button.navbar-toggler:focus{
+    outline: none;
+}
+.navbar-dark .navbar-toggler{
+    borer: none;
+}
+
+.carousel-item:nth-child(1){
+    background-image: url(../images/main1.jpg);
+}
+.carousel-item:nth-child(2){
+    background-image: url(../images/main2.jpg);
+}
+.carousel-item:nth-child(3){
+    background-image: url(../images/main3.jpg);
+}
+.carousel-item{
+    height: 70vh;
+    background-postion: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.clubs{
+    padding: 120px 0;
+    text-align: center;
+}
+
+.club_title{
+    font-size: 2.5rem;
+    line-height: 1.5;
+}
+
+.club_category{
+    display: block;
+    font-size: 1rem;
+    font-weight: 700;
+    line-height: 1.5;
+}
+
+.cover_title{
+    font-weight: 700;
+    font-size: 5rem;
+}
+
+.cover_text{
+    font-weight: 700;
+    font-size: 5rem;
+}
+.btn.btn-warning{
+    border-radius: 100px;
+    background-color: #ff9e1e !important;
+    border: none;
+}
