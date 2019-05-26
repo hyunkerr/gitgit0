@@ -6,9 +6,9 @@ from django.shortcuts import get_object_or_404
 
 # Create your views here.
 
-def home(request):
+def index(request):
     posts = Post.objects.all
-    return render(request, 'blog/home.html',{'posts_list':posts})
+    return render(request, 'blog/index.html',{'posts_list':posts})
     
 def new(request):
     if request.method == 'POST':
@@ -19,7 +19,7 @@ def new(request):
             post.pub_date = timezone.now()
             post.writer = request.user
             post.save()
-            return redirect('home')
+            return redirect('index')
             
     else:
         form = PostForm()
@@ -49,4 +49,4 @@ def post_edit(request, index):
 def post_delete(request, index):
     post = get_object_or_404(Post, pk=index)
     post.delete()
-    return redirect('home')
+    return redirect('index')
